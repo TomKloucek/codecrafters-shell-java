@@ -1,5 +1,5 @@
 package Commands;
 
 public interface ICommand {
-    void exec(String[] arguments);
+    boolean exec(String[] arguments);
 }
