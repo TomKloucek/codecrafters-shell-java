@@ -4,6 +4,7 @@
 import Commands.EchoCommand;
 import Commands.ExitCommand;
 import Commands.ICommand;
+import Commands.TypeCommand;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -17,7 +18,9 @@ public class Main {
         Map<String, ICommand> commands = new HashMap<>();
         commands.put(ExitCommand.getName(), new ExitCommand());
         commands.put(EchoCommand.getName(), new EchoCommand());
+        commands.put(TypeCommand.getName(), new TypeCommand(commands));
         // Uncomment this block to pass the first stage
+
         while (true) {
             System.out.print("$ ");
             Scanner scanner = new Scanner(System.in);
