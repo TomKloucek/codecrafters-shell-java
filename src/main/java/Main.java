@@ -18,7 +18,7 @@ public class Main {
         Map<String, ICommand> commands = new HashMap<>();
         commands.put(ExitCommand.getName(), new ExitCommand());
         commands.put(EchoCommand.getName(), new EchoCommand());
-        commands.put(TypeCommand.getName(), new TypeCommand(commands));
+        commands.put(TypeCommand.getName(), new TypeCommand(System.getenv("PATH"), commands));
         // Uncomment this block to pass the first stage
 
         while (true) {
