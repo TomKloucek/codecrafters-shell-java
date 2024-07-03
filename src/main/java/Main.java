@@ -14,14 +14,16 @@ public class Main {
         // Initialize implemented commands
         Map<String, ICommand> commands = new HashMap<>();
         // Uncomment this block to pass the first stage
-        System.out.print("$ ");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+        while (true) {
+            System.out.print("$ ");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
 
-        if (commands.containsKey(input.toLowerCase())) {
-            commands.get(input.toLowerCase()).exec(null);
-        } else {
-            System.out.println(input+": command not found");
+            if (commands.containsKey(input.toLowerCase())) {
+                commands.get(input.toLowerCase()).exec(null);
+            } else {
+                System.out.println(input + ": command not found");
+            }
         }
     }
 }
