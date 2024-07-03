@@ -1,6 +1,7 @@
 // Uncomment this block to pass the first stage
 // import java.util.Scanner;
 
+import Commands.EchoCommand;
 import Commands.ExitCommand;
 import Commands.ICommand;
 
@@ -15,6 +16,7 @@ public class Main {
         // Initialize implemented commands
         Map<String, ICommand> commands = new HashMap<>();
         commands.put(ExitCommand.getName(), new ExitCommand());
+        commands.put(EchoCommand.getName(), new EchoCommand());
         // Uncomment this block to pass the first stage
         while (true) {
             System.out.print("$ ");
