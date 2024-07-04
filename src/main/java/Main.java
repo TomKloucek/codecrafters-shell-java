@@ -1,10 +1,7 @@
 // Uncomment this block to pass the first stage
 // import java.util.Scanner;
 
-import Commands.EchoCommand;
-import Commands.ExitCommand;
-import Commands.ICommand;
-import Commands.TypeCommand;
+import Commands.*;
 
 import java.io.File;
 import java.util.HashMap;
@@ -20,6 +17,7 @@ public class Main {
         commands.put(ExitCommand.getName(), new ExitCommand());
         commands.put(EchoCommand.getName(), new EchoCommand());
         commands.put(TypeCommand.getName(), new TypeCommand(System.getenv("PATH"), commands));
+        commands.put(PwdCommand.getName(), new PwdCommand());
 
         while (true) {
             System.out.print("$ ");
