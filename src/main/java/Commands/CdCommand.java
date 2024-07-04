@@ -17,7 +17,19 @@ public class CdCommand implements ICommand {
             return true;
         }
         if (arguments[0].startsWith(".")) {
-
+            if (arguments[0].startsWith("..")) {
+                File dir = new File(currentDir);
+                for (int i = 0; i < arguments[0].split("../", -1).length-1; i++) {
+                    dir = new File(dir.getParent());
+                }
+                currentDir = dir.getAbsolutePath();
+            } else {
+                if (checkDirExists(currentDir+arguments[0].split("\\.")[1])) {
+                    currentDir = currentDir+arguments[0].split("\\.")[1];
+                } else {
+                    System.out.println("cd: "+arguments[0]+": No such file or directory");
+                }
+            }
         } else if (arguments[0].startsWith("~")) {
 
         } else {
