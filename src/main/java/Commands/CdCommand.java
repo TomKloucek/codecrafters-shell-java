@@ -31,7 +31,7 @@ public class CdCommand implements ICommand {
                 }
             }
         } else if (arguments[0].startsWith("~")) {
-
+            currentDir = System.getenv("HOME");
         } else {
             if (checkDirExists(arguments[0])) {
                 currentDir = arguments[0];
