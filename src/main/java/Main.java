@@ -6,6 +6,7 @@ import Commands.ExitCommand;
 import Commands.ICommand;
 import Commands.TypeCommand;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -19,7 +20,6 @@ public class Main {
         commands.put(ExitCommand.getName(), new ExitCommand());
         commands.put(EchoCommand.getName(), new EchoCommand());
         commands.put(TypeCommand.getName(), new TypeCommand(System.getenv("PATH"), commands));
-        // Uncomment this block to pass the first stage
 
         while (true) {
             System.out.print("$ ");
@@ -36,7 +36,11 @@ public class Main {
                     break;
                 }
             } else {
-                System.out.println(input + ": command not found");
+                if (ExternalProgram.programExists(parts)) {
+                    ExternalProgram.executeProgram(input);
+                } else {
+                    System.out.println(input + ": command not found");
+                }
             }
         }
     }
