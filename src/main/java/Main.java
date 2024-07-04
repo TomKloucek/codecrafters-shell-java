@@ -18,6 +18,7 @@ public class Main {
         commands.put(EchoCommand.getName(), new EchoCommand());
         commands.put(TypeCommand.getName(), new TypeCommand(System.getenv("PATH"), commands));
         commands.put(PwdCommand.getName(), new PwdCommand());
+        commands.put(CdCommand.getName(), CdCommand.getInstance());
 
         while (true) {
             System.out.print("$ ");
